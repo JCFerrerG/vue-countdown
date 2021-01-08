@@ -55,6 +55,9 @@
       <countdown :time="time" tag="p">
         <template slot-scope="props">Christmas Time Remaining: {{ props.totalDays }} days / {{ props.totalHours }} hours / {{ props.totalMinutes }} minutes / {{ props.totalSeconds }} seconds / {{ props.totalMilliseconds }} milliseconds.</template>
       </countdown>
+      <countdown :time="1" :interval="-100" tag="p">
+        <template slot-scope="props">Time elapsed since last page refresh：{{ props.days }} days, {{ props.hours }} hours, {{ props.minutes }} minutes, {{ props.seconds }}.{{ Math.floor(props.milliseconds / 100) }} seconds.</template>
+      </countdown>
       <button type="button" class="btn btn-primary" :disabled="counting" @click="startCountdown">
         <countdown v-if="counting" :time="60000" @end="handleCountdownEnd">
           <template slot-scope="props">Fetch again {{ props.totalSeconds }} seconds later</template>

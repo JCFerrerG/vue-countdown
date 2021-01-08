@@ -52,7 +52,6 @@ export default {
     interval: {
       type: Number,
       default: 1000,
-      validator: (value) => value >= 0,
     },
 
     /**
@@ -234,7 +233,7 @@ export default {
         return;
       }
 
-      const delay = Math.min(this.totalMilliseconds, this.interval);
+      const delay = Math.min(this.totalMilliseconds, Math.abs(this.interval));
 
       if (delay > 0) {
         if (window.requestAnimationFrame) {

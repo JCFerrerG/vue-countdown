@@ -5,7 +5,7 @@
  * Copyright 2018-present Chen Fengyuan
  * Released under the MIT license
  *
- * Date: 2020-02-25T01:19:32.769Z
+ * Date: 2021-01-08T22:16:07.899Z
  */
 
 'use strict';
@@ -60,10 +60,7 @@ var index = {
      */
     interval: {
       type: Number,
-      default: 1000,
-      validator: function validator(value) {
-        return value >= 0;
-      }
+      default: 1000
     },
 
     /**
@@ -247,7 +244,7 @@ var index = {
         return;
       }
 
-      var delay = Math.min(this.totalMilliseconds, this.interval);
+      var delay = Math.min(this.totalMilliseconds, Math.abs(this.interval));
 
       if (delay > 0) {
         if (window.requestAnimationFrame) {
